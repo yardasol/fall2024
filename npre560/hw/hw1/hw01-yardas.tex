@@ -88,7 +88,7 @@ setspace, wasysym}
                         \item Accident transients (e.g. LOCA) (dynamics)
                         \item Time-dependent experiments, such as the Dragon
                             criticality experiment or a neutron pulse.
-                    \end{enumerate}efers to short time phenomena with feedback.
+                    \end{enumerate}
                 \end{solution}
 
         % ---------------------------------------------
@@ -122,14 +122,19 @@ setspace, wasysym}
                 $\chi(E)$ given in the same table and with $\bar{E_k}$ of Table 
                 2-IV.
                 \begin{solution}
-                    I used Python to calculate $\overline{E} = 164.14$ keV. This
+                    I used Python to calculate $\overline{E} = 1641.4$ keV for
+                    the total emission spectra from Table 2-V. This
                     is much greater than the average delayed neutron energies
-                    for all delayed groups, which is what we expect (expand on
-                    this from ch 2.1). The average energies for neutrons from
+                    for all delayed groups, which is what we expect as the total
+                    spectra included prompt neutrons which are emitted at higher
+                    energies. The average energies for neutrons from
                     delayed groups 1 through 4 calculated from
-                    Table 2-V are an order of magnitude smaller than the average
+                    Table 2-V are roughly half the magnitude of the average
                     energies for the same delayed groups given in Table 2-IV.
-                    (why? did I do calculation wrong?)
+                    It's not entirely clear, but I assume this is because the
+                    values in Table 2-V are based on theoretical caclulations. It
+                    is also unclear which isotopes the given emission spectra
+                    are for in Table 2-V.
                 \end{solution}
         \end{parts}
 
@@ -138,7 +143,12 @@ setspace, wasysym}
         Give approximately the total precursor yields of $^{235}U$, $^{238}U$, 
         and $^{239}Pu$.
                 \begin{solution}
-                        solution here
+                    The delayed neutron yield is more or less the same as the
+                    precursor yield, so we use the delayed neutron yield to
+                    calculate the precursor yield.
+                    Based on the yields in Table 2-I, the total precursor yield
+                    for $^{235}$U is $0.0165$,
+                    for $^{238}$U is $0.0412$, and for $^{239}$Pu is $0.0063$
                 \end{solution}
 
         % ---------------------------------------------
@@ -146,14 +156,18 @@ setspace, wasysym}
         How many delayed neutron groups (families) are generally used per 
         fissioning isotope?
                 \begin{solution}
-                        solution here
+                    6, sometimes 8
                 \end{solution}
 
         % ---------------------------------------------
         \question[10] (Ott Review Question 2.9)
         What is the disadvantage of using isotope-dependent decay constants?
                 \begin{solution}
-                        solution here
+                    Isotope-dependent decay constants can be very difficult to
+                    measure. Some of them are clustered together very closely,
+                    so differentiating the decay of one isotope from another can
+                    be challenging. This one of the reasons why we use delay
+                    groups in the first place.
                 \end{solution}
 
         % ---------------------------------------------
@@ -161,7 +175,13 @@ setspace, wasysym}
         Give the approximate mean lifetime of the slowest and the fastest 
         decaying precursor group.
                 \begin{solution}
-                        solution here
+                    The mean lifetime is simply $T = \frac{1}{\lambda}$. Using
+                    values from Table 2-III for a single set of decay constants,
+                    the slowest decaying precursor group has $\lambda = 0.0129$
+                    $s^{-1}$, so the mean lifetime is $T = 77.5$ s. The fastest
+                    decaying precursor group has $\lambda = 3.21$ $s^{-1}$, so
+                    the mean lifetime is $T = 0.312$ s, and the fastest decaying
+                    precursor group 
                 \end{solution}
 
 \end{questions}
