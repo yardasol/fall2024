@@ -18,7 +18,7 @@ setspace, wasysym}
 \newcommand{\assignment}{HW 2}
 \newcommand{\duedate}{2024.09.30}
 %\newcommand{\timelimit}{50 Minutes}
-\newcommand{\StudentName}{Firstname Lastname} %Please include your name here
+\newcommand{\StudentName}{Oleksandr Yardas} %Please include your name here
 
 \newcommand{\nth}{n\ensuremath{^{\text{th}}} }
 \newcommand{\ve}[1]{\ensuremath{\mathbf{#1}}}
@@ -73,13 +73,29 @@ setspace, wasysym}
                 $\nu \Sigma_{f1} = 0.015 \left[\frac{1}{cm}\right]$ and 
                 $\nu \Sigma_{f2} = 0.3 \left[\frac{1}{cm}\right]$.
                 \begin{solution}
-                        solution here
+                    Let's assume the weigting of each energy group is $0.5$. We
+                    can then calculate 
+                    \begin{align*}
+                        \nu \Sigma_{f} &= 0.5 \nu \Sigma_{f1} + 0.5 \nu
+                            \Sigma_{f2} \\
+                        &= 0.5 * 0.015 \text{cm}^{-1} + 0.5 * 0.3
+                            \text{cm}^{-1}\\
+                        &= 0.1575 \text{cm}^{-1}
+                    \end{align*}
                 \end{solution}
 
                 \part[5] Calculate $\Lambda$ with $\bar{v}$ and with 
                 $\bar{\frac{1}{v}}$.
                 \begin{solution}
-                        solution here
+                    Suppose our one-group neutrons are at 0.025 eV. Then their
+                    velocity is
+                    \begin{align*}
+                        \bar{v} &= \sqrt{\frac{2E}{m_{n}}} \\
+                        &= \sqrt{\frac{2 * 0.025 \text{eV} * 1.602 * 10^{-19}
+                            \frac{\text{J}}{\text{eV}}}{1.6749 * 10^{-27}
+                            \text{kg}}} \\
+                        &= 2186 \text{m/s}
+                    \end{align*}
                 \end{solution}
 
                 \part[5] Discuss the results.
@@ -95,13 +111,19 @@ setspace, wasysym}
                 \part[5] Give the formula for $\beta_{eff}$ in the one 
         group approximation.
                 \begin{solution}
-                        solution here
+                    In one group, we have
+                    \begin{equation}
+                        \beta_\text{eff} = \frac{\nu_{d} \Sigma_{f}}{\nu
+                        \Sigma_{f}}
+                    \end{equation}
+                    where $\nu_{d}$ is the delayed neutron yield from fission.
                 \end{solution}
 
                 \part[10] Which physical fact is described by $\beta_{eff}$ in 
                 this approximation?
                 \begin{solution}
-                        solution here
+                    $\beta_\text{eff}$ describes the fraction of delayed
+                    neutrons produced from fission.
                 \end{solution}
         \end{parts}
 
@@ -110,7 +132,15 @@ setspace, wasysym}
         \question[10] (Ott Review 3.10) Why is the diffusion equation a reasonable 
         approximation for kinetics in large reactors?
         \begin{solution}
-                solution here.
+            According to Ott, multigroup diffusion theory using the appropriate
+            cell averaged group constants is a good approximation for reactor
+            statics, but has errors near reflectors and blankets at the edge of
+            the core (as well as at control rods). For kinetics problems in
+            large reactors, the reflector and blanket regions are of low
+            importance for reactivity, as the adjoint flux in these regions will
+            be small in a large reactor. Since the reactivity governs the
+            time-dependence of the flux, applying the diffusion approxmation for
+            deriving kinetics equations incurrs acceptably low errors.
         \end{solution}
 
         % ---------------------------------------------
@@ -134,7 +164,11 @@ setspace, wasysym}
         \question[5] (Ott Review 5.4) What does ``exact'' mean in the context 
         of exact point kinetics equations?
         \begin{solution}
-                solution here.
+            ``Exact'' means we abandon the simplifying assumptions we
+            made for one-group point kinetics (for example, we assume that
+            flux is {\it not} separable in time). This will yield improved
+            equations for our integral parameters ($\rho$, $\Lambda$, $\beta$)
+            as well as power, $\zeta_{k}$, and $s(t)$.
         \end{solution}
         
 
