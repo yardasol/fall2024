@@ -151,7 +151,45 @@ setspace, wasysym}
         \begin{parts}
                 \part[5] from reaction rates
                         \begin{solution}
-                            See Ott page 52
+                            We can define reactivity $\rho$ based on the
+                            multiplication factor $k$ as
+                            \begin{equation}
+                                \rho = 1 - \frac{1}{k}
+                            \end{equation}
+                            Let the inital state of the sphere be inidcated by
+                            superscript $0$, and the perturbed state by
+                            superscript $1$. Assuming we are starting at
+                            criticality, we have $k^{0} = 1$ and $\rho^{0}=0$.
+                            We can also define $k^{0}$ based on reaction rates
+                            as 
+                            \begin{equation}
+                                k^{0} = \frac{\text{neutrons
+                                production}}{\text{neutron loss}} = \frac{\nu
+                                \Sigma_{f}}{\Sigma_{a} +\Sigma_{s}} 
+                            \end{equation}
+                            It then follows that 
+                            \begin{equation}
+                                \Delta \rho = \rho^{1} - \rho^{0} = \rho^{1} = 1 -\frac{1}{k^1}
+                            \end{equation}
+                            We can in turn define $k^{1}$ based on reaction rates as
+                            \begin{equation}
+                                k^{1} = \frac{\text{neutrons
+                                production}}{\text{neutron loss}} = \frac{\nu
+                                \Sigma_{f}}{\Sigma_{a} + \delta \Sigma_{a} + \Sigma_{s}} 
+                            \end{equation}
+                            Plugging this into the equation for $\delta \rho$,
+                            we have
+                            \begin{align*}
+                                \delta \rho &= 1 - \frac{\Sigma_{a} + \delta
+                                    \Sigma_{a} + \Sigma_{s}}{\nu \Sigma_{f}}\\
+                                &= 1 - \frac{\Sigma_{a} +
+                                    \Sigma_{s}}{\nu\Sigma_{f}} - \frac{\delta
+                                    \Sigma_{a}}{\nu \Sigma_{f}} \\
+                                &= 1 - \frac{1}{k^{0} } - \frac{\delta
+                                    \Sigma_{a}}{\nu \Sigma_{f}} \\
+                                &=- \frac{\delta
+                                    \Sigma_{a}}{\nu \Sigma_{f}}
+                            \end{align*}
                         \end{solution}
                 \part[5] from the first-order perturbation formula for the 
                 one-group approximation.
@@ -195,14 +233,53 @@ setspace, wasysym}
                 $\Lambda = 10^{-5}$s, and  
                 $\Lambda = 4\times10^{-7}$s. Data is given in Table 2-III.
                 \begin{solution}
-                        Ott p 99 for prompt period, not sure about the stable
-                        one though\ldots
+                    The inhour equation is given by Equation 6.65 in Ott:
+                    \begin{equation}
+                        \rho(\alpha) = \alpha \Lambda + \sum_{k} \frac{\beta_{k}
+                        \alpha}{\alpha + \lambda_{k}}
+                    \end{equation}
+                    Plugging in the given values for $\Lambda$ and $\lambda_{k}$
+                    for $k=1,2,3,4,5,6$ to the  
+                    The domain of the stable-period branch is bounded by
+                    $-\lambda_{1}$ on the left, where $\lambda_{1}$ is the
+                    smallest magnitude decay constant. This is because the
+                    stable period is limited by the decay of the longest lived
+                    isotopes. Likewise, the prompt-period branch is bounded by
+                    $-\lambda_6$ on the right, where $\lambda_{6}$ is the
+                    largest magnitude decay constant.
+
+                    (plot these)
                 \end{solution}
 
                 \part[10] Find $\rho(\alpha)$ in the one-delay-group 
                 approximation with $\lambda = \bar{\lambda}$.
                 \begin{solution}
-                        solution here.
+                    The one-delay group approximation is given by Equation 6.68
+                    in Ott:
+                    \begin{equation*}
+                        \rho = \alpha\Lambda + \frac{\beta\alpha}{\alpha +
+                        \lambda}
+                    \end{equation*}
+                    In terms of reactivity per $\beta$, this is
+                    \begin{equation*}
+                        \frac{\rho}{\beta} = \frac{\alpha\Lambda}{\beta} + \frac{\alpha}{\alpha +
+                        \lambda}
+                    \end{equation*}
+
+                    We calculate $\overline{\lambda} = \frac{1}{6}\sum_{k=1}^{6}
+                    \lambda_{k}$, so plugging in the values from Table 2-III in
+                    Ott yields $\overline{\lambda} = 0.8298 s^{-1}$. For each
+                    value of $\Lambda$, we have the following result:
+                    \begin{itemize}
+                        \item $\Lambda = 10^{-4}s$: $\frac{\rho}{\beta} =
+                            \frac{\alpha 10^{-4}}{\beta} + \frac{\alpha}{\alpha + 0.8298}$
+                        \item $\Lambda = 10^{-5}s$: $\frac{\rho}{\beta} =
+                            \frac{\alpha 10^{-5}}{\beta} + \frac{\alpha}{\alpha + 0.8298}$
+                        \item $\Lambda = 4 \times 10^{-7}s$: $\frac{\rho}{\beta} =
+                            \frac{4\alpha 10^{-7}}{\beta} + \frac{\alpha}{\alpha + 0.8298}$
+                    \end{itemize}
+
+                    (plot?)
                 \end{solution}
 
         \end{parts}
@@ -211,7 +288,10 @@ setspace, wasysym}
         \question[5] (Ott Review 6.13) Which conditions have to be fulfilled to 
         yield an asymptotic transient with a ``stable'' period?
         \begin{solution}
-                solution here.
+            Constant reactivitiy is required to establish an asymtotic transient
+            with a stable period. According to Ott, this requires the power
+            density ``to be small enough so that no noticeable reactivity
+            feedback disturbing the constant reactivity develops''.
         \end{solution}
 
         
@@ -220,7 +300,17 @@ setspace, wasysym}
         asymptotic transient following a reactivity insertion of $\rho = 
         1.25\cent$.
         \begin{solution}
-                solution here.
+            A reactivity insertion of $1.25\cent = 0.0125\beta$ would lead to a slow
+            transient, so we can assume that $\alpha \ll \lambda_{k}$. We can
+            then apply Equation 6.76 from Ott:
+            \begin{equation*}
+                \alpha = \frac{\rho}{\beta} 0.08 s^{-1}
+            \end{equation*}
+            Plugging in the reactivity, we get
+            \begin{align*}
+                \alpha = 0.0125 * 0.08 = 0.001 s^{-1}
+            \end{align*}
+            Taking the reciprocal of $\alpha$, we get a stable period of 1000s.
         \end{solution}
 
 
@@ -229,8 +319,95 @@ setspace, wasysym}
         kinetics equations with decreasing sophistication of the description of 
         delayed neutrons.
         \begin{solution}
-                solution here.
+        \begin{itemize}
+            \item 6 DNP group kinetics equation: $\dot{p} = \frac{\rho -
+                \beta}{\Lambda}p + \frac{1}{\Lambda} \sum_{k=1}^{6} \lambda_{k}
+                \zeta_{k}(t)$
+            \item 2 DNP group kinetics equation: $\dot{p} = \frac{\rho -
+                \beta}{\Lambda}p + \frac{1}{\Lambda} \sum_{k=1}^{2} \lambda_{k}
+                \zeta_{k}(t)$ 
+            \item 1 DNP group kinetics equation: $\dot{p} = \frac{\rho -
+                    \beta}{\Lambda}p + \frac{1}{\Lambda} \overline{\lambda}
+                \zeta(t)$ 
+            \item Precursor accumulation (PA) approximation: $\dot{p} = \frac{\rho -
+                \beta}{\Lambda}p + \frac{1}{\Lambda} [\beta_{0}p_{0} + \overline{\lambda}
+                \beta I(t)]$
+            \item Constant delayed source (CDS) approximation: $\dot{p} = \frac{\rho -
+                \beta}{\Lambda}p + \frac{1}{\Lambda} \beta_{0}p_{0}$
+            \item Prompt kinetics approximation: $\dot{p} = \frac{\rho -
+                \beta}{\Lambda}p$
+            \item Kinetics without delayed neutrons: $\dot{p} = \frac{\rho}{\Lambda}p$
+        \end{itemize}
         \end{solution}
+
+        \question (Ott Problem 3.2)
+        Find $\overline{v}$ and $\overline{\frac{1}{v}}$ for a two-group
+        representation of a thermal reactor spectrum, composed for simplicity of
+        a Maxwellian and a 1/E spectrum:
+        \begin{align*}
+            \phi_1(E) &= \frac{a}{E} &\text{for 0.2eV $\leq E \leq 2$ MeV}\\ 
+            \phi_2(E) &= \frac{bE}{(kT)^{2}}e^{-\frac{E}{kT}} &\text{for 0 $\leq
+            E \leq \infty$}
+        \end{align*}
+        The Maxewllian decreases fast enough so that no finite upper limit needs
+        to be considered in $\phi_2(E)$,
+        \begin{parts}
+                \part[3] Find $a$ and $b$ such that the two components of the
+                normalized $\phi(E)$ provide equal contributions to the energy
+                integral.
+                \begin{solution}
+                    Suppose $\phi(E) = \phi_1(E) + \phi_2(E)$ is normalized. We
+                    then have that
+                    \begin{align*}
+                        1 &= \int_{0}^{\infy} \phi(E) dE = \int_{0.2}^{2e6}
+                            \phi_1(E) dE + \int_{0}^{\infty} \phi_2(E) dE \\
+                        &= \int_{0.2}^{2e6} \frac{a}{E} dE + \int_{0}^{\infty}
+                          \frac{bE}{(kT)^{2}} e^{-\frac{E}{kT}} dE \\
+                        &= a \ln(E)\Bigg|_{0.2}^{2e6} - \frac{be^{-\frac{E}{kT}}
+                            (kT + E)}{kT} \Bigg|_{0}^{\infty}\\
+                        &= a \ln{10^{7}} + b = a 7\ln(10) + b
+                    \end{align*}
+                    Now suppose that $\phi_1(E)$ and $\phi_2(E)$ provide equal
+                    controbutions to the energy integral, that is, that
+                    $\int_{0.2}^{2e6} \phi_1(E) dE + \int_{0}^{\infty} \phi_2(E)
+                    dE$. We then have that $a 7 \ln{10} = b$. Substituting
+                    this for $b$ in the previous expression and rearranging, we
+                    get
+                    \[
+                        \boxed{
+                        a = \frac{1}{14 \ln(10)}
+                        }
+                    \]
+                    and then we get 
+                    \[
+                        \boxed{
+                        b = 0.5
+                        }
+                    \]
+                \end{solution}
+
+                \part[3] Find the average velocities for both groups
+                ($\overline{v}_{1}$ and $\overline{v}_{2}$).
+                \begin{solution}
+                    To calculate the average velocity, we calculate
+                    \begin{equation}
+                        
+                    \end{equation}
+                \end{solution}
+
+                \part[2] Derive two-group definitions of $\overline{v}$ and
+                $\overline{\frac{1}{v}}$.
+                \begin{solution}
+                    solution
+                \end{solution}
+
+                \part[2] Find the corresponding numerical values.
+                \begin{solution}
+                    solution
+                \end{solution}
+        \end{parts}
+
+
         
 \end{questions}
 
