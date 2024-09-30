@@ -247,8 +247,6 @@ setspace, wasysym}
                     isotopes. Likewise, the prompt-period branch is bounded by
                     $-\lambda_6$ on the right, where $\lambda_{6}$ is the
                     largest magnitude decay constant.
-
-                    (plot these)
                 \end{solution}
 
                 \part[10] Find $\rho(\alpha)$ in the one-delay-group 
@@ -278,8 +276,6 @@ setspace, wasysym}
                         \item $\Lambda = 4 \times 10^{-7}s$: $\frac{\rho}{\beta} =
                             \frac{4\alpha 10^{-7}}{\beta} + \frac{\alpha}{\alpha + 0.8298}$
                     \end{itemize}
-
-                    (plot?)
                 \end{solution}
 
         \end{parts}
@@ -389,10 +385,28 @@ setspace, wasysym}
                 \part[3] Find the average velocities for both groups
                 ($\overline{v}_{1}$ and $\overline{v}_{2}$).
                 \begin{solution}
-                    To calculate the average velocity, we calculate
-                    \begin{equation}
-                        
-                    \end{equation}
+                    To calculate $\overline{v}$, the average velocity, we
+                    compute
+                    \begin{equation*}
+                        \overline{v} =
+                        \sqrt{\frac{2}{m_{n}}}\frac{\int_{0}^{\infty} \sqrt{E}
+                        \phi(E) dE}{\int_{0}^{\infty} \phi(E) dE}
+                    \end{equation*}
+                    For group 1, this is
+                    \begin{align*}
+                        \overline{v}_1 &=
+                            \sqrt{\frac{2}{m_{n}}}\frac{\int_{0.2}^{2e6}
+                            \frac{a}{\sqrt{E}} dE}{\int_{0.2}^{2e6} \frac{a}{E}
+                            dE}\\
+                        &= \sqrt{\frac{2}{m_{n}}}
+                            \frac{2a\sqrt{E}\Big|_{0.2}^{2e6}}{a
+                            \ln(E)\Big|_{0.2}^{2e6}} \\
+                    \end{align*}
+                    After plugging in the values, I get an answer that is way
+                    too big when using $m_{n} = 1.675e-27$ kg. Not sure what is
+                    going on, but don't have time to spare to fix it. We'd
+                    follow the same approach to get $\overline{v}_{2}$ but using
+                    $\phi_{2}$.
                 \end{solution}
 
                 \part[2] Derive two-group definitions of $\overline{v}$ and
