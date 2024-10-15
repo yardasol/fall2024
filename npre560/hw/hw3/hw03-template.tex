@@ -11,6 +11,7 @@ setspace, wasysym}
 \usepackage[margin=1in]{geometry}
 \usepackage{enumerate}
 \usepackage[hidelinks]{hyperref}
+\usepackage{subfig}
 
 % Here's where you edit the Class, Exam, Date, etc.
 \newcommand{\class}{NPRE 560}
@@ -18,7 +19,7 @@ setspace, wasysym}
 \newcommand{\assignment}{HW 3}
 \newcommand{\duedate}{2024.10.23}
 %\newcommand{\timelimit}{50 Minutes}
-\newcommand{\StudentName}{Firstname Lastname} %Please include your name here
+\newcommand{\StudentName}{Oleksandr Yardas} %Please include your name here
 
 \newcommand{\nth}{n\ensuremath{^{\text{th}}} }
 \newcommand{\ve}[1]{\ensuremath{\mathbf{#1}}}
@@ -70,12 +71,72 @@ setspace, wasysym}
         \begin{parts}
                 \part[5] Without delayed neutrons.
                 \begin{solution}
-                        solution here
+                    With no delayed neutrons, we drop delayed neutrons from the
+                    kinetics equation:
+                    \begin{equation}
+                        \dot{p} = \frac{\rho(t)}{\Lambda}p(t)
+                    \end{equation}
+                    Following a step reactivity insertion, the slope of the
+                    power will constantly increase at a rate of
+                    $\frac{\rho}{\Lambda}\rho$, that is, without any delayed
+                    neutrons the power blows up. We can also see this if we
+                    solve the equation analytically, assuming the reactivity
+                    stays constant, as $p(t) = p_{0} e^{\frac{\rho}{\Lambda}t}$.
+                    Figure \ref{fig:1a} shows a plot of the power over time
+                    using $p_{0} = 1.0$, $\Lambda = 2 \cdot 10^{-5}$. 
+                    \begin{figure}[htpb]
+                        \centering
+                        \includegraphics[width=0.5\linewidth]{1a.pdf}
+                        \caption{Plot of reactivity insertion without delayed
+                        neutrons}
+                        \label{fig:1a}
+                    \end{figure}
                 \end{solution}
 
                 \part[5] With constant delayed neutron source.
                 \begin{solution}
-                        solution here
+                    With a constant delayed source, we approximate the delayed
+                    neutron source as constant, that is $S_d(t) = S_{d} =
+                    \beta p_{0}$. Assumuing no external source, the kinetics
+                    equation becomes
+                    \begin{equation}
+                        \dot{p} = \frac{\rho(t) - \beta}{\Lambda}p(t) +
+                        \frac{\beta p_{0}}{\Lambda}
+                    \end{equation}
+                    The transient following a step reactivity insertion depends
+                    on the value of $\beta$. If $\beta \gg \rho$, we will have
+                    an inital jump in reactivity that quickly stabilizes. As
+                    $\beta > \rho$, the transient takes longer to stabilize. If
+                    $\beta = \rho$, the $p(t)$ term dissappaer and we have
+                    linear transient. As $\beta$ becomes less than $\rho$, the
+                    transient blows up more quickly.
+
+                    %\begin{figure}[htpb]
+                    %    \centering
+                    %    \subfloat[]{
+                    %        \includegraphics[width=0.5\linewidth]{1b1.pdf}
+                    %        \label{fig:1b1}
+                    %    }
+                    %    \subfloat[]{
+                    %        \includegraphics[width=0.5\linewidth]{1b2.pdf}
+                    %        \label{fig:1b2}
+                    %    }\\
+                    %    \subfloat[]{
+                    %        \includegraphics[width=0.5\linewidth]{1b3.pdf}
+                    %        \label{fig:1b3}
+                    %    }
+                    %    \subfloat[]{
+                    %        \includegraphics[width=0.5\linewidth]{1b4.pdf}
+                    %        \label{fig:1b4}
+                    %    }
+                    %    \caption{Transients for CDS approximation, $P_0 = 1$,
+                    %        $\Lambda = 2\cdot 10^{-5}$:
+                    %    \subref{fig:1b1} Transient when $\beta = 750$ pcm;
+                    %    \subref{fig:1b2} Transient when $\beta = 100$ pcm;
+                    %    \subref{fig:1b3} Transient when $\beta = 50$ pcm;
+                    %    \subref{fig:1b4} Transient when $\beta = 20$ pcm}
+                    %    \label{fig:cr_eject_results}
+                    %\end{figure}
                 \end{solution}
 
                 \part[5] With no approximations (no formula required).
