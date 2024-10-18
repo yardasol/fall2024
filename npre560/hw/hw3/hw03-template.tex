@@ -84,13 +84,13 @@ setspace, wasysym}
                     stays constant, as $p(t) = p_{0} e^{\frac{\rho}{\Lambda}t}$.
                     Figure \ref{fig:1a} shows a plot of the power over time
                     using $p_{0} = 1.0$, $\Lambda = 2 \cdot 10^{-5}$. 
-                    \begin{figure}[htpb]
+                    \begin{center}
                         \centering
                         \includegraphics[width=0.5\linewidth]{1a.pdf}
                         \caption{Plot of reactivity insertion without delayed
                         neutrons}
                         \label{fig:1a}
-                    \end{figure}
+                    \end{center}
                 \end{solution}
 
                 \part[5] With constant delayed neutron source.
@@ -111,37 +111,40 @@ setspace, wasysym}
                     linear transient. As $\beta$ becomes less than $\rho$, the
                     transient blows up more quickly.
 
-                    %\begin{figure}[htpb]
-                    %    \centering
-                    %    \subfloat[]{
-                    %        \includegraphics[width=0.5\linewidth]{1b1.pdf}
-                    %        \label{fig:1b1}
-                    %    }
-                    %    \subfloat[]{
-                    %        \includegraphics[width=0.5\linewidth]{1b2.pdf}
-                    %        \label{fig:1b2}
-                    %    }\\
-                    %    \subfloat[]{
-                    %        \includegraphics[width=0.5\linewidth]{1b3.pdf}
-                    %        \label{fig:1b3}
-                    %    }
-                    %    \subfloat[]{
-                    %        \includegraphics[width=0.5\linewidth]{1b4.pdf}
-                    %        \label{fig:1b4}
-                    %    }
-                    %    \caption{Transients for CDS approximation, $P_0 = 1$,
-                    %        $\Lambda = 2\cdot 10^{-5}$:
-                    %    \subref{fig:1b1} Transient when $\beta = 750$ pcm;
-                    %    \subref{fig:1b2} Transient when $\beta = 100$ pcm;
-                    %    \subref{fig:1b3} Transient when $\beta = 50$ pcm;
-                    %    \subref{fig:1b4} Transient when $\beta = 20$ pcm}
-                    %    \label{fig:cr_eject_results}
-                    %\end{figure}
+                    \begin{center}
+                        \centering
+                        \subfloat[]{
+                            \includegraphics[width=0.5\linewidth]{1b1.pdf}
+                            \label{fig:1b1}
+                        }
+                        \subfloat[]{
+                            \includegraphics[width=0.5\linewidth]{1b2.pdf}
+                            \label{fig:1b2}
+                        }\\
+                        \subfloat[]{
+                            \includegraphics[width=0.5\linewidth]{1b3.pdf}
+                            \label{fig:1b3}
+                        }
+                        \subfloat[]{
+                            \includegraphics[width=0.5\linewidth]{1b4.pdf}
+                            \label{fig:1b4}
+                        }
+                        \caption{Transients for CDS approximation, $P_0 = 1$,
+                            $\Lambda = 2\cdot 10^{-5}$:
+                        \subref{fig:1b1} Transient when $\beta = 750$ pcm;
+                        \subref{fig:1b2} Transient when $\beta = 100$ pcm;
+                        \subref{fig:1b3} Transient when $\beta = 50$ pcm;
+                        \subref{fig:1b4} Transient when $\beta = 20$ pcm}
+                        \label{fig:cr_eject_results}
+                    \end{center}
                 \end{solution}
 
                 \part[5] With no approximations (no formula required).
                 \begin{solution}
-                        solution here
+                    The behavior of the transient in this case will be very
+                    similar to the CDS approximation, however this time we have
+                    a time-varying delayed neutron source. This is what we
+                    studied in CP 1.
                 \end{solution}
 
         \end{parts}
@@ -151,7 +154,27 @@ setspace, wasysym}
         stable asymptotic transient for $\rho_1 < \beta$ in an initially 
         critical reactor.
                 \begin{solution}
-                        solution here
+                    For a critical reactor with a step reactivity instertion to
+                    a stationary state $\rho_{1}$ from a stationary state
+                    $\rho_{0}$, the response in the power is also a prompt jump.
+                    So there will be a transtion to a higer flat power
+                    profile corresponding to the prompt jump in reactivity. We
+                    can find the time it takes to make this transition based on
+                    Equaiont 6.94 in Ott, the equation or the power when the
+                    inverse prompt period is constant (which we have when we are
+                    critical):
+                    \begin{equation}
+                        p(t) = p_0 e^{\alpha_{p} t} + p_0 \frac{\beta}{\beta -
+                        \rho_1} (1 - e^{\alpha_{p} t})
+                    \end{equation}
+                    We have a stable asymptotic transient when $\frac{dp}{dt} =
+                    0$:
+                    \begin{align*}
+                        \frac{dp}{dt} = p_0 \alpha_p e^{\alpha_p t} - p_0 \frac{\beta}{\beta -
+                        \rho_1} \alpha_{p} e^{\alpha_{p} t})
+                    \end{align*}
+                    Setting this equal to zero and rearranging terms yields
+                    (the derivative doesn't work)
                 \end{solution}
 
 
@@ -161,21 +184,25 @@ setspace, wasysym}
         \begin{parts}
                 \part[5] the prompt jump phenomenon
                 \begin{solution}
-                        solution here.
+                    $\lambda_7$ is the smallest root so governs short
+                    time-behavior, and is reponsible for the inital dynamics of
+                    a prompt jump phenomenon.
                 \end{solution}
                 \part[5] the delayed neutron induced transition
                 \begin{solution}
-                        solution here.
+                    The delayed neutron transition is goverened by the
+                    intermediate roots $\lambda_{i}$ for $i=2,3,4,5,6$.
                 \end{solution}
                 \part[5] the stable period 
                 \begin{solution}
-                        solution here.
+                    The stable period is govered by the largest root (i.e. the
+                    root yielding the longest period), $\lambda_{1}$
                 \end{solution}
         \end{parts}
 
         
         % ---------------------------------------------
-        \question[30] (Ott Problem 8.1) Find the numerical value of $p^{00}$, 
+        \question[30] (Ott Problem 10.1) Find the numerical value of $p^{00}$, 
         the flux after a prompt jump for which the increase due to delayed 
         neutrons is just compensated by Doppler feedback, for an LWR from the 
         typical $\lambda$ and $\gamma/\beta$ values given in the text. Discuss 
@@ -183,11 +210,11 @@ setspace, wasysym}
         discussed in the text).
 
         \begin{solution}
-                solution here.
+            check out eq 10.48 in ott
         \end{solution}
 
         % ---------------------------------------------
-        \question[15] (Ott Review 8.1) Define each term, give an example of the 
+        \question[15] (Ott Review 10.1) Define each term, give an example of the 
         physical phenomena involved, and an example of a transient for each: 
         \begin{parts}
                 \part[5] Energy coefficient.
