@@ -37,6 +37,7 @@ setspace, wasysym}
 %\unframedsolutions
 
 \begin{document} 
+This homework was done in collaboration with Luke Seifert and Anthony Boyd
 
 % These commands set up the running header on the top of the exam pages
 \pagestyle{head}
@@ -83,12 +84,14 @@ setspace, wasysym}
                     solve the equation analytically, assuming the reactivity
                     stays constant, as $p(t) = p_{0} e^{\frac{\rho}{\Lambda}t}$.
                     Figure \ref{fig:1a} shows a plot of the power over time
-                    using $p_{0} = 1.0$, $\Lambda = 2 \cdot 10^{-5}$. 
+                    using $p_{0} = 1.0$, $\Lambda = 2 \cdot 10^{-5}$. The below
+                    figure shows a plot of the reactivity insertion without
+                    delayed neutrons.
                     \begin{center}
                         \centering
                         \includegraphics[width=0.5\linewidth]{1a.pdf}
-                        \caption{Plot of reactivity insertion without delayed
-                        neutrons}
+                        %\caption{Plot of reactivity insertion without delayed
+                        %neutrons}
                         \label{fig:1a}
                     \end{center}
                 \end{solution}
@@ -109,34 +112,32 @@ setspace, wasysym}
                     $\beta > \rho$, the transient takes longer to stabilize. If
                     $\beta = \rho$, the $p(t)$ term dissappaer and we have
                     linear transient. As $\beta$ becomes less than $\rho$, the
-                    transient blows up more quickly.
-
-                    \begin{center}
-                        \centering
-                        \subfloat[]{
+                    transient blows up more quickly. The figures below,
+                    left-to-right top-to-bottom, show th transient for $\beta$
+                    750, 100, 50, and 20 pcm
+                        \subfloat{
                             \includegraphics[width=0.5\linewidth]{1b1.pdf}
-                            \label{fig:1b1}
+                            %\label{fig:1b1}
                         }
-                        \subfloat[]{
+                        \subfloat{
                             \includegraphics[width=0.5\linewidth]{1b2.pdf}
-                            \label{fig:1b2}
+                            %\label{fig:1b2}
                         }\\
-                        \subfloat[]{
+                        \subfloat{
                             \includegraphics[width=0.5\linewidth]{1b3.pdf}
-                            \label{fig:1b3}
+                            %\label{fig:1b3}
                         }
-                        \subfloat[]{
+                        \subfloat{
                             \includegraphics[width=0.5\linewidth]{1b4.pdf}
-                            \label{fig:1b4}
+                            %\label{fig:1b4}
                         }
-                        \caption{Transients for CDS approximation, $P_0 = 1$,
-                            $\Lambda = 2\cdot 10^{-5}$:
-                        \subref{fig:1b1} Transient when $\beta = 750$ pcm;
-                        \subref{fig:1b2} Transient when $\beta = 100$ pcm;
-                        \subref{fig:1b3} Transient when $\beta = 50$ pcm;
-                        \subref{fig:1b4} Transient when $\beta = 20$ pcm}
-                        \label{fig:cr_eject_results}
-                    \end{center}
+                        %\caption{Transients for CDS approximation, $P_0 = 1$,
+                        %    $\Lambda = 2\cdot 10^{-5}$:
+                        %\subref{fig:1b1} Transient when $\beta = 750$ pcm;
+                        %\subref{fig:1b2} Transient when $\beta = 100$ pcm;
+                        %\subref{fig:1b3} Transient when $\beta = 50$ pcm;
+                        %\subref{fig:1b4} Transient when $\beta = 20$ pcm}
+                        %\label{fig:cr_eject_results}
                 \end{solution}
 
                 \part[5] With no approximations (no formula required).
@@ -160,7 +161,7 @@ setspace, wasysym}
                     So there will be a transtion to a higer flat power
                     profile corresponding to the prompt jump in reactivity. We
                     can find the time it takes to make this transition based on
-                    Equaiont 6.94 in Ott, the equation or the power when the
+                    Equation 6.94 in Ott, the equation or the power when the
                     inverse prompt period is constant (which we have when we are
                     critical):
                     \begin{equation}
@@ -171,10 +172,12 @@ setspace, wasysym}
                     0$:
                     \begin{align*}
                         \frac{dp}{dt} = p_0 \alpha_p e^{\alpha_p t} - p_0 \frac{\beta}{\beta -
-                        \rho_1} \alpha_{p} e^{\alpha_{p} t})
+                        \rho_1} \alpha_{p} e^{\alpha_{p} t}
                     \end{align*}
                     Setting this equal to zero and rearranging terms yields
-                    (the derivative doesn't work)
+                    0 = p_0 \alpha_p e^{\alpha_p t} - p_0 \frac{\beta}{\beta -
+                        \rho_1} \alpha_{p} e^{\alpha_{p} t}
+
                 \end{solution}
 
 
@@ -210,7 +213,27 @@ setspace, wasysym}
         discussed in the text).
 
         \begin{solution}
-            check out eq 10.48 in ott
+            Equation 10.48 in Ott described the term $p^{00}$:
+            \begin{equation}
+                -\frac{\gamma}{\beta} p^{00} = \overline{\lambda}
+            \end{equation}
+            Expanding $\overline{\lambda}$, we can cancel out the $\beta$ term
+            from each side:
+            \begin{equation}
+                -\gamma p^{00} = \sum_{i} \frac{\nu_{d,i}}{\nu} \lambda_{i}
+            \end{equation}
+            For an LWR, a typical $\gamma$ is $-0.8\$/\text{fp-s}$ (from
+            Equation 10.35 in Ott). We can use the values from Table 2-III in
+            Ott to calculate $\sum_{i} \frac{\nu_{d,i}}{\nu}
+            \lambda_{i}$. Using the $\nu_{d,i}$ values for U235 and $\nu = 2.5$,
+            we get the RHS equals 0.0029 $s^{-1}$. Dividing by $-\gamma$ and
+            plugging in our values, we get $p^{00} = 0.0036 \text{fp/\$}$.
+
+            In different reactors (LWRs and fast reactors), $\beta$ and
+            $\overline{\lambda}$ will be different due to different fuels used,
+            leading to different neutron yields, so $p^{00}$ would also then
+            be different.
+
         \end{solution}
 
         % ---------------------------------------------
@@ -218,14 +241,61 @@ setspace, wasysym}
         physical phenomena involved, and an example of a transient for each: 
         \begin{parts}
                 \part[5] Energy coefficient.
-                \part[5] Temperature coefficient. of reactvity.
-                \part[5] Power coeffciient.
+                \part[5] Temperature coefficient of reactvity.
+                \part[5] Power coefficient.
         \end{parts}
         \begin{solution}
-                solution here.
+            \begin{itemize}
+                \item The energy coefficient of reactivity is given by
+                    \begin{equation}
+                        \gamma_{Q} = \frac{\partial \rho}{\partial Q}
+                    \end{equation}
+                    The energy coefficient of reactivity is the
+                    change in reactivity due to energy generated in the core.
+                    The physical phenomena involved are heat
+                    generation in the fuel leading to increases in temperature
+                    which cause Doppler broadening, as well as decreases in
+                    density decreasing macroscopic cross sections. An example of
+                    a transient for this is a reactivity excursion increasing
+                    the rate of energy released in the fuel, causing an
+                    increase in fuel temperature, which in turn decreases the
+                    density of the fuel. As the Doppler effect kicks in due to
+                    the higher temperature, reactivity decreases, which in turn
+                    reduces the energy deposition in the fuel
+                \item The temperature coefficent of reactivity is given by
+                    \begin{equation}
+                        \gamma_{T} = \frac{\partial \rho}{\partial T}
+                    \end{equation}
+                    The temperature coefficient of reactivity is the change in
+                    reactivity due to temperature change in the fuel. The
+                    physical phenomena involved is Doppler broadening. An
+                    example of a transient for this feedback mechanism is a
+                    reactivity excursion causing an increase in fuel
+                    temperature, decreasing reactivity via the Doppler effect,
+                    and in then returning to at or near the original reactivity
+                    and temperature.
+                \item The power  coefficient of reactivity is given by
+                    \begin{equation}
+                        \gamma_{P} = \frac{\partial \rho}{\partial P}
+                    \end{equation}
+                    The power coefficient of reactivity is the
+                    change in reactivity due to the change in power levels in
+                    the reactor. The physical phenomena involved are heat
+                    generation in the fuel leading to increases in temperature
+                    which cause Doppler broadening, decreases in
+                    density decreasing macroscopic cross sections, and build-up
+                    and decay of neutron poisons (xenon and samarium). An example of a
+                    transient would be a cylcically fluctuating power in a large,
+                    low-power reactor (e.g. Chicago Pile 1) due to buildup of
+                    xenon and samarium reducing power via parasitic absorption
+                    (which prevents further fission chains), which removes
+                    reactivity from the reactor. Then as the xenon
+                    and samarium decay away, power increases as fission chains
+                    begin to form again, inserting reactivity back into the
+                    system.
+            \end{itemize}
+            All of these 
         \end{solution}
-       
-       
 \end{questions}
 
 
