@@ -37,6 +37,7 @@ setspace, wasysym}
 %\unframedsolutions
 
 \begin{document} 
+This homework was to
 
 % These commands set up the running header on the top of the exam pages
 \pagestyle{head}
@@ -175,6 +176,7 @@ setspace, wasysym}
                     \end{align*}
                     Setting this equal to zero and rearranging terms yields
                     (the derivative doesn't work)
+                    CHECK PAGE 131 In OTT
                 \end{solution}
 
 
@@ -210,7 +212,27 @@ setspace, wasysym}
         discussed in the text).
 
         \begin{solution}
-            check out eq 10.48 in ott
+            Equation 10.48 in Ott described the term $p^{00}$:
+            \begin{equation}
+                -\frac{\gamma}{\beta} p^{00} = \overline{\lambda}
+            \end{equation}
+            Expanding $\overline{\lambda}$, we can cancel out the $\beta$ term
+            from each side:
+            \begin{equation}
+                -\gamma p^{00} = \sum_{i} \frac{\nu_{d,i}}{\nu} \lambda_{i}
+            \end{equation}
+            For an LWR, a typical $\gamma$ is $-0.8\$/\text{fp-s}$ (from
+            Equation 10.35 in Ott). We can use the values from Table 2-III in
+            Ott to calculate $\sum_{i} \frac{\nu_{d,i}}{\nu}
+            \lambda_{i}$. Using the $\nu_{d,i}$ values for U235 and $\nu = 2.5$,
+            we get the RHS equals 0.0029 $s^{-1}$. Dividing by $-\gamma$ and
+            plugging in our values, we get $p^{00} = 0.0036 \text{fp/\$}$.
+
+            In different reactors (LWRs and fast reactors), $\beta$ and
+            $\overline{\lambda}$ will be different due to different fuels used,
+            leading to different neutron yields, so $p^{00}$ would also then
+            be different.
+
         \end{solution}
 
         % ---------------------------------------------
@@ -222,7 +244,23 @@ setspace, wasysym}
                 \part[5] Power coeffciient.
         \end{parts}
         \begin{solution}
-                solution here.
+            \begin{itemize}
+                \item The energy coefficient of reactivity is given by
+                    \begin{equation}
+                        C_{QT} \left(\frac{\partial \rho}{\partial
+                        T}\right)_\text{Dop}
+                    \end{equation}
+                    where $C_{QT}$ is the converstion factor representing the
+                    rise of average fuel temperature in the core per unit of
+                    thermal energy generated in MW$\cdot$s, and
+                    $\left(\frac{\partial \rho}{\partial T}\right)_\text{Dop}$
+                    is the temeprature coefficient of reactivity due to Doppler
+                    broadening. The energy coefficient of reactivity is the
+                    change in reactivity due to energy generated in the core.
+                    The physical phenomena involved are heat
+                    generation in the fuel and Doppler broadening. An example
+                    of a transient for this feedback mechanism is\ldots
+            \end{itemize}
         \end{solution}
        
        
