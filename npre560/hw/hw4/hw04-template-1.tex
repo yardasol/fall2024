@@ -18,7 +18,7 @@ setspace, wasysym, mathrsfs}
 \newcommand{\assignment}{HW 4}
 \newcommand{\duedate}{2024.11.18}
 %\newcommand{\timelimit}{50 Minutes}
-\newcommand{\StudentName}{Firstname Lastname} %Please include your name here
+\newcommand{\StudentName}{Oleksandr Yardas} %Please include your name here
 
 \newcommand{\nth}{n\ensuremath{^{\text{th}}} }
 \newcommand{\ve}[1]{\ensuremath{\mathbf{#1}}}
@@ -70,25 +70,101 @@ setspace, wasysym, mathrsfs}
         plot the stable region for the closed-loop system in the $K(\alpha)$ 
         plane.
         \begin{parts}
+            Poles of the closed-loop transfer function, $Y(s)$, characterize the
+            stability of the system. If the poles of $Y(s)$ are in the
+            left-hand half of the complex plane. An equivalent condition is
+            that the roots of the characteristic equation
+            $D(s)=P_{G}(s)P_{H}(s) + D_{G}(s) D_{H}(s)$ are all negative and
+            real. This in turn, is equivalent to the condition than all of the
+            Routh numbers of the characteristic polynomial are positive, that
+            is, all of the numbers in first column of the Routh array are
+            positive. If $D(s)$ has the form
+            \begin{equation}
+                D(s) = a_{n}s^{n} + a_{n-1}s^{n-1} + a_{n-2}s^{n-2} +
+                a_{n-3}s^{n-3} +\ldots 
+            \end{equation}
+            then the Routh array is given by 
+            \[
+            \begin{matrix}
+                a_n & a_{n-2} & \ldots\\
+                a_{n-1} & a_{n-3} & \ldots\\
+                b_1 & \ldots & \\
+            \end{matrix}
+            \]
+            where the Routh numbers are the first column of this array. The
+            last Routh number is $a_{0}$, which is appended to the end of the
+            first column. $b_1$ is given by
+            \begin{equation}
+                b_1 = a_{n-2} - \frac{a_{n}a_{n-3}}{a_{n-1}}
+            \end{equation}
+            In practice, we form $D(s)$ by taking the sum of the
+            numerator and the denominator of $G(s)H(s)$
                 \part[5] $G(s)H(s) = \frac{K}{(s+2)(s+\alpha)}$
                 \begin{solution}
-                        solution here
+                    $D(s) = s^{2} + (2 + \alpha)s + 2\alpha + K$. We don't need
+                    to calculat $b_1$ since $a_{n-3} = 0$. So our Routh array is 
+                    \[
+                    \begin{matrix}
+                        1\\
+                        2 + \alpha\\
+                        2\alpha + K
+                    \end{matrix}
+                    \]
+                    So the region of stability is for $\alpha > -2$ and $K > -2
+                    \alpha$:
+                    %% PLOT
                 \end{solution}
                 \part[5] $G(s)H(s) = \frac{K + \alpha}{(s+2)(s+\alpha)}$
                 \begin{solution}
-                        solution here
+                    $D(s) = s^{2} + (2 + \alpha)s + 3\alpha + K$. Again,
+                    $a_{n-3}=0$ so we can immediately get out Routh numbers:
+                    \[
+                    \begin{matrix}
+                        1\\
+                        2 + \alpha\\
+                        3\alpha + K
+                    \end{matrix}
+                    \]
+                    So the region of stability is for $\alpha > -2$ and $K > -3
+                    \alpha$:
+                    %%plot
                 \end{solution}
                 \part[5] $G(s)H(s) = \frac{K\alpha}{(s+2)(s+\alpha)}$
                 \begin{solution}
-                        solution here
+                    $D(s) = s^{2} + (2 + \alpha)s + \alpha(2 + K)$. Again,
+                    $a_{n-3}=0$ so we can immediately get out Routh numbers:
+                    \[
+                    \begin{matrix}
+                        1\\
+                        2 + \alpha\\
+                        \alpha(K + 2)
+                    \end{matrix}
+                    \]
+                    So the region of stability is for $\alpha > -2$ and $K > -2$
+                    %% plot
                 \end{solution}
                 \part[5] $G(s)H(s) = \frac{K + \alpha}{(s+2)^2(s+\alpha)}$
                 \begin{solution}
-                        solution here
+                    $D(s) = s^{3} + (4 + \alpha)s^{2} + 4(1+\alpha)s + 5\alpha +
+                    K$, so $b_{1} = 4(1+\alpha) - \frac{5\alpha + K}{4 +
+                    \alpha}$
+                    The Routh array is then
+                    \[
+                    \begin{matrix}
+                        1 & 4(1+\alpha)\\
+                        4+\alpha & \\
+                        ??? & \\
+                        5\alpha + K & 
+                    \end{matrix}
+                    \]
+                    So the region of stability is $\alpha > -4$, $K < 4 -
+                    \alpha$, and $K > 5\alpha$
+                    %% PLOT
                 \end{solution}
                 \part[10] $G(s)H(s) = \frac{K + \alpha}{(s-1)(s+2)(s+\alpha)}$
                 \begin{solution}
-                        solution here
+                    $D(s) = s^3 + (alpha + 1)s^{2} + (\alpha - 2) s - \alpha +
+                    K$, so $b_1 = \alpha - 2 - \frac{K-\alpha}{\alpha + 1}
                 \end{solution}
                 \part[10] $G(s)H(s) = \frac{K(s+1)}{(s-1)(s+2)(s+\alpha)}$
                 \begin{solution}
