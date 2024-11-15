@@ -232,7 +232,27 @@ setspace, wasysym, mathrsfs}
         inversion of the zero power transfer function, $Z(s)$ to obtain the 
         impulse response function $\mathscr{Z}(t)$.
                 \begin{solution}
-                        solution here
+                    The zero power transfer function is
+                    \[
+                        Z(s) = \frac{1}{s}\left[\Lambda +
+                            \sum_{j=1}^{6}\frac{\beta_{j}}{s +
+                        \lambda_{j}}\right]^{-1}
+                    \]
+                    The impulse response function is
+                    \[
+                        \mathscr{Z}(t) = \frac{1}{\Lambda} +
+                        \sum_{j=2}^{7}\frac{e^{s_{j}t}}{s_{j}\left[\Lambda +
+                        \sum_{i=1}^{6} \frac{\beta_{i} \lambda_{i}}{(s_{j} +
+                        \lambda_{i})^{2}} \right]}
+                    \]
+                    To get $\mathscr{Z}(t)$ from $Z(s)$, we need to perform an
+                    inverse Laplace transform on $Z(s)$. The inverse Laplace
+                    transform has the form:
+                    \[
+                        f(t) = \frac{1}{2\pi i} \int_{c-i\infty}^{c+\infty} e^{st} g(s)
+                        ds
+                    \]
+                    \ldots
                 \end{solution}
        
         % ---------------------------------------------
@@ -244,7 +264,7 @@ setspace, wasysym, mathrsfs}
                     The one-group zero-power transfer function is
                     \[
                         Z(s) = \frac{1}{s}\left[\Lambda + \frac{\beta}{s +
-                        \lambda}\right]
+                        \lambda}\right]^{-1}
                     \]
                     From D\&H 6.II.D.3, we have that the amplitude is
                     $|Z(i\omega)| = \sqrt{\text{Re}^{2}[Z(i\omega)] +
