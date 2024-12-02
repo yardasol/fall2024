@@ -1,3 +1,9 @@
 [submodule "npre560/cp/560-cp1-yardasol"]
 	path = npre560/cp/560-cp1-yardasol
 	url = git@github.com:npre5XX/560-cp1-yardasol
+[submodule "npre560/cp/560-cp3-yardasol"]
+	path = npre560/cp/560-cp3-yardasol
+	url = git@github.com:npre5XX/560-cp3-yardasol
+[submodule "npre560/cp/560-cp2-yardasol"]
+	path = npre560/cp/560-cp2-yardasol
+	url = git@github.com:npre5XX/560-cp2-yardasol
