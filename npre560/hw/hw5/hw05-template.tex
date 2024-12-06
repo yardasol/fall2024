@@ -18,7 +18,7 @@ setspace, wasysym, mathrsfs}
 \newcommand{\assignment}{HW 5}
 \newcommand{\duedate}{2024.12.09}
 %\newcommand{\timelimit}{50 Minutes}
-\newcommand{\StudentName}{Firstname Lastname} %Please include your name here
+\newcommand{\StudentName}{Oleksandr Yardas} %Please include your name here
 
 \newcommand{\nth}{n\ensuremath{^{\text{th}}} }
 \newcommand{\ve}[1]{\ensuremath{\mathbf{#1}}}
@@ -70,7 +70,22 @@ setspace, wasysym, mathrsfs}
         \question[20] Give two reasons that make space-energy dependent 
         dynamics necessary. 
                 \begin{solution}
-                        Two reasons
+                    \begin{enumerate}
+                        \item From a physics perspective, point kinetics cannot
+                            account for localized effects in a reactor core,
+                            which leads to under-prediction of positive
+                            reactivity insertions and over-prediction of
+                            negative reactivity insertions. To model localized
+                            effects accurately, we needs space-energy dynamics.
+                            accurately, we need space-energy dependence.
+                            %% This is the same as my answer to question 3?
+                        \item From a safety perspective, as the assumptions of
+                            point kinetics give inaccurate results on whole
+                            cores, particular thermal reactor cores, they are
+                            insufficient for safety studies. To model transients
+                            accurately to determine reactor safety, we needs
+                            space-energy dependence.
+                    \end{enumerate}
                 \end{solution}
 
 
@@ -78,7 +93,11 @@ setspace, wasysym, mathrsfs}
         \question[10] Give an example of a scenario in which energy dependent 
         dynamics is necessary for reactor analysis.
                 \begin{solution}
-                        scenario
+                    Consider a transient in a fast reactor. Fast reactors
+                    generally have a wider neutron spectrum for fissioning
+                    neutrons and are more sensitive to doppler broadening. To
+                    account for the doppler feedback and neutron spectrum during
+                    a transient in a fast reactor, energy dependence is needed.
                 \end{solution}
 
 
@@ -87,7 +106,10 @@ setspace, wasysym, mathrsfs}
         \question[10] Give an example of a scenario in which space dependent 
         dynamics is necessary for reactor analysis.
                 \begin{solution}
-                        scenario
+                    Consider a transient in a thermal reactor. Thermal reactor
+                    cores are very large, and thus have have highly localized
+                    effects, particularly during a transient. Space dependence
+                    is needed to capture these localized effects.
                 \end{solution}
 
 
@@ -99,19 +121,41 @@ setspace, wasysym, mathrsfs}
         \begin{parts}
                 \part[10] the finite difference solution approach
                 \begin{solution}
-                        advantages and disadvantages.
+                    \begin{itemize}
+                        \item Advantages: Simple mathematics; straightforward to
+                            implement; accurate for sufficiently small timesteps
+                        \item Disadvantages: Memory intensive; not fast.
+                    \end{itemize}
                 \end{solution}
                 \part[10] the nodal approach
                 \begin{solution}
-                        advantages and disadvantages.
+                    \begin{itemize}
+                        \item Advantages: ? 
+                        \item Disadvantages: Expensive for complicated
+                            geometries
+                    \end{itemize}
                 \end{solution}
                 \part[10] the modal approach
                 \begin{solution}
-                        advantages and disadvantages.
+                    \begin{itemize}
+                        \item Advantages: Modes only need to be calculated once
+                            for a given problem, typically using a
+                            lower-dimensional static problem
+                        \item Disadvantages: Savings over finite differences
+                            only achieved with a small number of modes
+                    \end{itemize}
                 \end{solution}
                 \part[10] the quasistatic approach
                 \begin{solution}
-                        advantages and disadvantages.
+                    \begin{itemize}
+                        \item Advantages: Relatively fast; Flux factorization
+                            into shape and amplitude functions assumes shape
+                            changes slowly with respect to time, so the shape
+                            function is not recalculated at every timestep as
+                            the amplitude function.
+                        \item Disadvantages: Inaccuracies when simulating
+                            initial fast reactivity changes 
+                    \end{itemize}
                 \end{solution}
         \end{parts}
 
@@ -122,11 +166,20 @@ setspace, wasysym, mathrsfs}
         \begin{parts}
                 \part[10] Which approximation is common to both?
                 \begin{solution}
-                        solution
+                    Both methods assume the flux $\phi(\mathbf{r}, E, t)$ is
+                    factored into a shape function, $\psi(\mathbf{r}, E, t)$,
+                    and an amplitude function $p(t)$.
                 \end{solution}
                 \part[10] What are the key differences?
                 \begin{solution}
-                        solution
+                    The quasistatic method neglects the shape function time
+                    derivative (in the improved quasistatic method, a finite
+                    difference approximates the shape function time derivative).
+                    In the adiabatic method, the $\frac{\alpha}{v}$ term is
+                    neglected and the delayed neutron source is approximated as
+                    a fraction of the prompt neutron source. This leads to the
+                    adiabatic method eliminating kinetic features in the shape
+                    function
                 \end{solution}
         \end{parts}
 
